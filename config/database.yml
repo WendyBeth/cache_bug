@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+
+development:
+  <<: *default
+  database: cache_bug_development
+
+test:
+  <<: *default
+  database: cache_bug_test
+
+production:
+  <<: *default
+  database: cache_bug_production
+  username: cache_bug
+  password: <%= ENV['CACHE_BUG_DATABASE_PASSWORD'] %>
